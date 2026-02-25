@@ -1,4 +1,4 @@
-var generateName = require('sillyname');
-var sillyName = generateName();
+import generateName from 'sillyname';
 
-console.log(sillyName);
+const nombreRandom = generateName();
+console.log(nombreRandom);
