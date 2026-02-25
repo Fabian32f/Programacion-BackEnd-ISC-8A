@@ -1,0 +1,17 @@
+# Ignorar dependencias de Node
+node_modules/
+
+# Variables de entorno
+.env
+
+# Carpetas de compilacion
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# Archivos del sistema (Windows)
+.DS_Store
+Thumbs.db
