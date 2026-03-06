@@ -1,0 +1,16 @@
+{
+  "name": "practica_1.4.3",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Fabian",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1"
+  }
+}
