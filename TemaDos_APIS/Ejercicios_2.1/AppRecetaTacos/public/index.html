@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TacosMx</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <h1>Tacoschidos 🌮</h1>
+
+    <form id="Form" class="buttons">
+      <button type="button" data-type="Cerdo">🐷</button>
+      <button type="button" data-type="Pollo">🐔</button>
+      <button type="button" data-type="Pescado">🐟</button>
+      <button type="button" data-type="Pavo">🦃</button>
+    </form>
+
+    <div id="Container"></div>
+
+    <script>
+      const buttons = document.querySelectorAll("button[data-type]");
+      const container = document.getElementById("Container");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", async () => {
+          const type = button.getAttribute("data-type");
+
+          try {
+            const response = await fetch(`/receta/${type}`);
+            const receta = await response.json();
+
+            // Renderizar la receta en el contenedor
+            container.innerHTML = `
+                        <h2>${receta.nombre}</h2>
+                        <p class="precio">Precio: $${receta.precio.toFixed(2)}</p>
+                        
+                        <h3>Proteína:</h3>
+                        <p><strong>${receta.ingredientes.proteina.nombre}</strong></p>
+                        <p><em>${receta.ingredientes.proteina.preparacion}</em></p>
+                        
+                        <h3>Salsa:</h3>
+                        <p><strong>${receta.ingredientes.salsa.nombre}</strong> (Picor: ${receta.ingredientes.salsa.picor})</p>
+                        
+                        <h3>Acompañamientos:</h3>
+                        <ul>
+                            ${receta.ingredientes.acompañamientos
+                              .map(
+                                (acomp) => `
+                                <li>
+                                    <strong>${acomp.nombre}</strong> - ${acomp.cantidad}
+                                    <br>Ingredientes: ${acomp.ingredientes.join(", ")}
+                                </li>
+                            `,
+                              )
+                              .join("")}
+                        </ul>
+                    `;
+          } catch (error) {
+            container.innerHTML = "<p>Error al cargar la receta</p>";
+            console.error("Error:", error);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

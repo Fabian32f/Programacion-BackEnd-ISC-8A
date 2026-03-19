@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Receta</title>
+    <style>
+      .card {
+        border: 2px solid #2ecc71;
+        border-radius: 10px;
+        padding: 20px;
+        width: 300px;
+        font-family: sans-serif;
+      }
+      .precio {
+        color: #e67e22;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+      ul {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="taco-card" class="card">
+      <h1 id="taco-nombre">Cargando...</h1>
+      <p class="precio">Precio: <span id="taco-precio">0</span></p>
+      <h3>Acompañamientos:</h3>
+      <ul id="lista-acompañamientos"></ul>
+    </div>
+
+    <script>
+      const taco = {
+        /* ... (Usar el objeto JSON anterior) ... */
+        id: "0001",
+        tipo: "taco",
+        nombre: "Taco lechon",
+        precio: 20.0,
+        ingredientes: {
+          proteina: {
+            nombre: "Puerco",
+            preparacion: "Horneado",
+          },
+          salsa: {
+            nombre: "Tomate verde",
+            picor: "Medio",
+          },
+          acompañamientos: [
+            {
+              nombre: "Cebolla",
+              cantidad: "1 cucharada",
+              ingredientes: ["Cebolla blanca", "Cilantro", "Naranja", "Sal"],
+            },
+            {
+              nombre: "Guacamole",
+              cantidad: "2 cucharadas",
+              ingredientes: [
+                "Aguacate",
+                "Jugo de limon",
+                "Sal",
+                "Cebolla",
+                "Cilantro",
+              ],
+            },
+          ],
+        },
+      };
+
+      // 1. Insertar nombre en el h1
+      document.getElementById("taco-nombre").textContent = taco.nombre;
+
+      // 2. Insertar precio con formato moneda
+      document.getElementById("taco-precio").textContent =
+        "$" + taco.precio.toFixed(2);
+
+      // 3. Recorrer acompañamientos y crear <li> para cada uno (con los ingredientes)
+      const lista = document.getElementById("lista-acompañamientos");
+
+      taco.ingredientes["acompañamientos"].forEach((acompanamiento) => {
+        // Crear elemento principal
+        const li = document.createElement("li");
+        li.textContent =
+          acompanamiento.nombre + " - " + acompanamiento.cantidad;
+
+        // Crear sublista de ingredientes
+        const subLista = document.createElement("ul");
+
+        acompanamiento.ingredientes.forEach((ingrediente) => {
+          const subLi = document.createElement("li");
+          subLi.textContent = ingrediente;
+          subLista.appendChild(subLi);
+        });
+
+        // Agregar sublista dentro del li principal
+        li.appendChild(subLista);
+
+        // Agregar todo a la lista principal
+        lista.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
