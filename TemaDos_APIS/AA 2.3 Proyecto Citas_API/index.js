@@ -20,8 +20,10 @@ app.get('/', async (req, res) => {
         const character = result.data.data.character.name;
         res.render('index.ejs', { quote, character });
     } catch (error) {
-        console.log(error.message);
-        res.status(500).send('Error al obtener la cita');
+        res.render('index.ejs',{
+            quote: "Error al obtener la cita, Intente mas tarde.",
+            character: "Desconocido"
+        });
     }
 });
 
