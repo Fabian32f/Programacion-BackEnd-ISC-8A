@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Rajdhani:wght@300;400;600&display=swap');
+
+:root {
+    --hextech-azul: #010a13;
+    --hextech-azul-medio: #0a1628;
+    --hextech-dorado: #c89b3c;
+    --hextech-cyan: #0bc4e3;
+    --hextech-cyan-oscuro: #0596aa;
+    --hextech-borde: #785a28;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--hextech-azul);
+    background-image: 
+        radial-gradient(ellipse at top, #0a1628 0%, #010a13 70%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--hextech-dorado);
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(200, 155, 60, 0.5);
+    letter-spacing: 3px;
+}
+
+h3 {
+    color: var(--hextech-cyan);
+    font-family: 'Cinzel', serif;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(11, 196, 227, 0.5);
+}
+
+/* Formulario */
+form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--hextech-azul-medio);
+    border: 1px solid var(--hextech-borde);
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(200, 155, 60, 0.1);
+}
+
+input {
+    padding: 10px 15px;
+    border: 1px solid var(--hextech-borde);
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+}
+
+input::placeholder {
+    color: #5b5a56;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--hextech-cyan);
+    box-shadow: 0 0 10px rgba(11, 196, 227, 0.3);
+}
+
+span {
+    color: var(--hextech-dorado);
+    font-size: 1.5rem;
+}
+
+button {
+    padding: 10px 25px;
+    background: linear-gradient(to bottom, #c89b3c, #785a28);
+    border: none;
+    border-radius: 2px;
+    color: var(--hextech-azul);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #0bc4e3, #0596aa);
+    color: white;
+    box-shadow: 0 0 15px rgba(11, 196, 227, 0.5);
+}
+
+/* Perfil */
+.perfil {
+    background: linear-gradient(135deg, #0a1628 0%, #010a13 100%);
+    border: 1px solid var(--hextech-borde);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    width: 450px;
+    box-shadow: 
+        0 0 40px rgba(200, 155, 60, 0.15),
+        inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.perfil > img {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--hextech-dorado);
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(200, 155, 60, 0.4);
+}
+
+.perfil h2 {
+    color: var(--hextech-dorado);
+    font-family: 'Cinzel', serif;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(200, 155, 60, 0.5);
+}
+
+.perfil p {
+    font-size: 1.1rem;
+    margin: 0.4rem 0;
+    color: #a0a0a0;
+    letter-spacing: 1px;
+}
+
+/* Campeones */
+.campeones {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.campeon {
+    text-align: center;
+}
+
+.campeon img {
+    width: 65px;
+    border-radius: 50%;
+    border: 2px solid var(--hextech-cyan);
+    box-shadow: 0 0 15px rgba(11, 196, 227, 0.4);
+    transition: 0.3s;
+}
+
+.campeon img:hover {
+    box-shadow: 0 0 25px rgba(11, 196, 227, 0.8);
+    transform: scale(1.1);
+}
+
+.campeon p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+    color: #a0a0a0;
+}
+
+/* Link */
+a {
+    color: var(--hextech-cyan);
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: 'Cinzel', serif;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--hextech-dorado);
+    text-shadow: 0 0 10px rgba(200, 155, 60, 0.5);
+}

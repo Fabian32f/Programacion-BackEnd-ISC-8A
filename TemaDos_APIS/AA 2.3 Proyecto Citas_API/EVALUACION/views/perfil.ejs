@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil - <%= nombre %></title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <h1>Perfil del Invocador</h1>
+    <div class="perfil">
+        <img src="https://ddragon.leagueoflegends.com/cdn/16.8.1/img/profileicon/<%= icono %>.png" alt="Icono">
+        <h2><%= nombre %> #<%= tag %></h2>
+        <p>Nivel: <%= nivel %></p>
+        <p>Rango: <%= rango %></p>
+        <p>LP: <%= lp %></p>
+        <p>Victorias: <%= victorias %></p>
+        <p>Derrotas: <%= derrotas %></p>
+
+    <h3>Campeones más jugados</h3>
+    <div class="campeones">
+        <% campeones.forEach(campeon => { %>
+        <div class="campeon">
+            <img src="https://ddragon.leagueoflegends.com/cdn/16.8.1/img/champion/<%= campeon.nombre %>.png" alt="<%= campeon.nombre %>">
+            <p><%= campeon.nombre %></p>
+            <p>Maestría: <%= campeon.puntos.toLocaleString() %></p>
+        </div>
+    <% }) %>
+    </div>
+
+        <h3>Desafíos</h3>
+        <% if (desafios) { %>
+            <p>Puntos totales: <%= desafios.current.toLocaleString() %></p>
+            <p>Nivel: <%= desafios.level %></p>
+        <% } else { %>
+            <p>Sin datos de desafíos</p>
+        <% } %>
+
+    </div>
+    <a href="/">Buscar otro invocador</a>
+</body>
+</html>
